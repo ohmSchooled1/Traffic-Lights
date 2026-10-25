@@ -1,0 +1,35 @@
+// Worksheet 4: Traffic lights
+// Three LEDs (red, amber, green) follow the UK traffic light sequence.
+
+const int redPin = 10;
+const int amberPin = 9;
+const int greenPin = 8;
+
+void setup() {
+  pinMode(redPin, OUTPUT);
+  pinMode(amberPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+}
+
+void loop() {
+  // Red: stop
+  digitalWrite(redPin, HIGH);
+  digitalWrite(amberPin, LOW);
+  digitalWrite(greenPin, LOW);
+  delay(3000);
+
+  // Red and amber: get ready
+  digitalWrite(amberPin, HIGH);
+  delay(1000);
+
+  // Green: go
+  digitalWrite(redPin, LOW);
+  digitalWrite(amberPin, LOW);
+  digitalWrite(greenPin, HIGH);
+  delay(3000);
+
+  // Amber: stop if safe
+  digitalWrite(greenPin, LOW);
+  digitalWrite(amberPin, HIGH);
+  delay(1000);
+}
